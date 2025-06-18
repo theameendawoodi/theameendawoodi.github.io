@@ -1,0 +1,154 @@
+body {
+  font-family: Georgia, serif;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #222;
+  background-color: #fdfdfd;
+}
+
+nav {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #555;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+.name-block h1 {
+  margin-bottom: 0;
+}
+
+.subtitle {
+  margin-top: 0;
+  font-style: italic;
+  font-size: 0.95em;
+  color: #444;
+}
+
+.tagline {
+  font-size: 1.05em;
+  color: #555;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.inner-list {
+  list-style-type: disc;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+details {
+  margin-left: 1em;
+  margin-top: 0.5em;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+details summary {
+  cursor: pointer;
+  font-style: italic;
+  color: #333;
+}
+
+blockquote {
+  margin: 20px 0;
+  padding-left: 20px;
+  border-left: 3px solid #ccc;
+  color: #555;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 0.85em;
+  color: #999;
+  text-align: center;
+}
+body {
+  font-family: Georgia, serif;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 20px;
+  color: #222;
+  background-color: #fdfdfd;
+}
+
+nav {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #555;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+.name-block h1 {
+  margin-bottom: 0;
+}
+
+.subtitle {
+  margin-top: 0;
+  font-style: italic;
+  font-size: 0.95em;
+  color: #444;
+}
+
+.tagline {
+  font-size: 1.05em;
+  color: #555;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.inner-list {
+  list-style-type: disc;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+details {
+  margin-left: 1em;
+  margin-top: 0.5em;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+details summary {
+  cursor: pointer;
+  font-style: italic;
+  color: #333;
+}
+
+blockquote {
+  margin: 20px 0;
+  padding-left: 20px;
+  border-left: 3px solid #ccc;
+  color: #555;
+}
+
+footer {
+  margin-top: 40px;
+  font-size: 0.85em;
+  color: #999;
+  text-align: center;
+}
