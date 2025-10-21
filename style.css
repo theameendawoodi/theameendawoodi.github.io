@@ -60,3 +60,8 @@ blockquote {
   color: #ccc;
   font-style: italic;
 }
+
+hr.dashed {
+  border-top: 3px dashed #bbb;
+}
+
