@@ -1,0 +1,233 @@
+/* ============================================================
+   M.A.R. — site stylesheet
+   Direction: minimal · gruvbox · academic
+   Signature: the masthead double-rule (solid + dotted), carried
+   from the journal-style page breaks, and the § marginalia mark
+   before every section heading.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root{
+  /* -- gruvbox core -- */
+  --ink:       #1d2021;   /* bg0_h — page background */
+  --ink-soft:  #282828;   /* bg0   — panel background */
+  --ink-raise: #32302f;   /* bg0_s — raised panel */
+  --rule:      #3c3836;   /* bg1   — hairlines, borders */
+  --rule-soft: #504945;   /* bg2   — softer borders */
+  --paper:     #ebdbb2;   /* fg1   — primary text */
+  --muted:     #a89984;   /* fg4   — secondary text, nav, footer */
+  --faint:     #7c6f64;   /* bg4   — tertiary / placeholder text */
+
+  /* -- accents -- */
+  --amber:      #fabd2f;  /* primary accent — links, marginalia, focus */
+  --amber-dim:  #d79921;  /* hover / visited */
+  --aqua:       #8ec07c;  /* secondary accent — tags, code, small ui */
+  --rust:       #fe8019;  /* rare emphasis */
+
+  /* -- type -- */
+  --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* -- layout -- */
+  --max-width: 980px;
+  --measure: 700px;      /* comfortable reading column */
+  --radius: 3px;
+}
+
+*{box-sizing:border-box}
+
+body.dark{
+  min-height:100vh;
+  background:var(--ink);
+  color:var(--paper);
+  margin:0;
+  padding:0 24px 48px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-family:var(--font-serif);
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+::selection{background:var(--amber); color:var(--ink)}
+
+a{color:var(--amber); text-decoration:underline; text-decoration-color:var(--rule-soft); text-underline-offset:3px; transition:color .15s ease, text-decoration-color .15s ease}
+a:hover{color:var(--aqua); text-decoration-color:var(--aqua)}
+a:visited{color:var(--amber-dim)}
+
+:focus-visible{outline:2px dashed var(--amber); outline-offset:3px}
+
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important; animation:none !important}
+}
+
+/* ============================================================
+   Masthead / header — the site's signature: brand mark, nav,
+   then a solid rule followed by a dotted rule beneath it.
+   ============================================================ */
+
+.site-header{
+  max-width:var(--max-width); width:100%;
+  display:flex; flex-direction:column; gap:14px;
+  align-items:flex-start;
+  padding-top:28px; padding-bottom:18px;
+  border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.site-header::after{
+  content:""; display:block; width:100%; height:0;
+  position:absolute; left:0; bottom:-5px;
+  border-top:1px dotted var(--rule-soft);
+}
+
+.masthead-row{
+  width:100%; display:flex; align-items:center; justify-content:space-between;
+  gap:16px; flex-wrap:wrap;
+}
+
+.brand-mark{
+  display:inline-flex; align-items:center; gap:9px;
+  text-decoration:none; line-height:0;
+}
+.brand-mark img{height:34px; width:auto; display:block; transition:opacity .15s ease}
+.brand-mark .brand-name{
+  color:var(--muted); font-family:var(--font-mono); font-size:0.85rem;
+  letter-spacing:.1em; line-height:normal; transition:color .15s ease;
+}
+.brand-mark:hover img{opacity:0.72}
+.brand-mark:hover .brand-name{color:var(--amber)}
+
+.site-header h1{margin:0; font-size:1.85rem; font-weight:600; letter-spacing:-.01em}
+.tagline{color:var(--muted); margin:0; font-family:var(--font-mono); font-size:0.82rem; letter-spacing:.02em}
+
+nav{display:flex; gap:2px; flex-wrap:wrap; font-family:var(--font-mono); font-size:0.78rem; letter-spacing:.06em; text-transform:uppercase}
+nav a, nav span.current{
+  padding:5px 10px; border-radius:var(--radius);
+  color:var(--muted); text-decoration:none;
+}
+nav a:hover{color:var(--amber); background:var(--ink-soft)}
+nav span.current{color:var(--amber); background:var(--ink-soft); font-weight:600}
+
+/* ============================================================
+   Main content
+   ============================================================ */
+
+main{max-width:var(--max-width); width:100%; margin-top:8px}
+
+main > section{padding:34px 0; border-top:1px solid var(--rule)}
+main > section:first-child{border-top:none; padding-top:30px}
+
+h2{
+  font-size:1.3rem; font-weight:600; margin:0 0 14px;
+  display:flex; align-items:baseline; gap:9px;
+}
+h2::before{
+  content:"§"; color:var(--amber); font-family:var(--font-mono);
+  font-size:0.95rem; font-weight:500;
+}
+h3{font-size:1.08rem; font-weight:600; margin:22px 0 10px; color:var(--paper)}
+h4{font-size:0.95rem; font-weight:600; margin:16px 0 8px; color:var(--muted); font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.04em}
+
+p{max-width:var(--measure); margin:0 0 14px}
+main > section > p:only-child{max-width:var(--measure)}
+
+ul, ol{max-width:var(--measure); padding-left:1.3em; margin:0 0 14px}
+li{margin-bottom:5px}
+li ul, li ol{margin-top:5px}
+
+strong{color:var(--paper); font-weight:600}
+em{color:var(--paper)}
+
+blockquote{
+  margin:18px 0; padding:4px 0 4px 18px;
+  border-left:2px solid var(--amber);
+  color:var(--muted); font-style:italic;
+  max-width:var(--measure);
+}
+blockquote p{margin-bottom:8px}
+blockquote p:last-child{margin-bottom:0}
+
+code{
+  font-family:var(--font-mono); font-size:0.88em;
+  background:var(--ink-soft); color:var(--aqua);
+  padding:1px 5px; border-radius:var(--radius);
+}
+
+hr{border:none; border-top:1px solid var(--rule); margin:20px 0}
+hr + hr{margin-top:-14px; border-top-style:dotted; border-top-color:var(--rule-soft)}
+
+/* ============================================================
+   Reusable components
+   ============================================================ */
+
+.preserved{
+  background:var(--ink-soft);
+  border:1px solid var(--rule);
+  padding:18px 20px; border-radius:var(--radius); color:var(--paper);
+}
+.preserved p{max-width:none}
+
+.button-link{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-mono); font-size:0.85rem; letter-spacing:.03em;
+  padding:9px 16px; border:1px solid var(--amber); border-radius:var(--radius);
+  color:var(--amber); text-decoration:none; background:transparent;
+}
+.button-link:hover{background:var(--amber); color:var(--ink); text-decoration:none}
+
+.hero{display:flex; gap:32px; align-items:center; flex-wrap:wrap}
+.hero-left{flex:1 1 360px; min-width:0}
+.hero-right{flex:0 0 auto}
+.hero-image{width:260px; max-width:100%; border-radius:var(--radius); object-fit:cover; border:1px solid var(--rule); display:block}
+.credit{color:var(--faint); font-size:0.8rem; font-family:var(--font-mono); margin-top:8px}
+
+.tags{display:flex; gap:8px; flex-wrap:wrap; list-style:none; padding:0; margin:0; max-width:none}
+.tags li{
+  background:var(--ink-soft); border:1px solid var(--rule);
+  padding:6px 13px; border-radius:999px; color:var(--muted);
+  font-family:var(--font-mono); font-size:0.78rem; letter-spacing:.02em;
+  margin-bottom:0;
+}
+
+.small-art{width:150px; border-radius:var(--radius); object-fit:cover; display:block; margin-top:12px; border:1px solid var(--rule)}
+.project-img{width:100%; max-width:640px; border-radius:var(--radius); object-fit:cover; display:block; margin:12px 0; border:1px solid var(--rule)}
+.artist-spotlight, .project-visual{max-width:var(--measure)}
+
+.latest p{color:var(--muted)}
+
+/* writing.html — table of contents */
+.preserved ul{margin-bottom:0}
+.preserved > ul > li > a{color:var(--paper); text-decoration:none; font-weight:600}
+.preserved > ul > li > a:hover{color:var(--amber)}
+.preserved ul ul{margin-top:6px; font-size:0.95rem}
+.preserved ul ul a{color:var(--muted); font-weight:400}
+.preserved ul ul a:hover{color:var(--amber)}
+
+article{max-width:var(--measure)}
+article h3{scroll-margin-top:24px}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+footer{
+  max-width:var(--max-width); width:100%; margin-top:36px;
+  padding-top:16px; border-top:1px dotted var(--rule-soft);
+  color:var(--faint); font-size:0.78rem; font-family:var(--font-mono);
+}
+footer p{margin:0 0 4px; max-width:none}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+@media (max-width: 640px){
+  body.dark{padding:0 16px 36px; font-size:16px}
+  .site-header h1{font-size:1.5rem}
+  .hero{gap:20px}
+  .hero-image{width:100%; max-width:220px}
+  main > section{padding:26px 0}
+}
